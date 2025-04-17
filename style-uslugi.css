@@ -1,0 +1,652 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    font-family: sans-serif;
+    width: 100%;
+    height: 100%;
+    background-color: #18234E;
+    color: #333;
+    line-height: 1.6;
+  }
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Шапка */
+header {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background-color: #18234E;
+    border: 0px solid red;
+  }
+  
+  nav {
+    border: 0px solid red;
+    max-width: 90%;
+    margin: 0 auto;
+    margin-top: 1%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  nav > a img {
+    width: 300px;
+  }
+  
+  ul {
+    display: flex;
+    gap: 20px;
+    transition: .5s;
+  }
+  
+  li a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 20px;
+    font-family: "Rubik", sans-serif;
+  }
+  
+  
+  label {
+    display: none;
+  }
+  
+  #burger-toggle {
+    display: none;
+  }
+  
+  @media (max-width: 826px) {
+    label {
+      position: relative;
+      display: block;
+      height: 25px;
+      width: 30px;
+    }
+  
+    label::after, label::before, label span {
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      background-color: rgb(255, 255, 255);
+      transition: .3s;
+    }
+  
+    label::before {
+      content: "";
+      top: 0;
+    }
+  
+    label::after {
+      content: "";
+      bottom: 0;
+    }
+  
+    label span {
+      top: 11px;
+    }
+  
+    #burger-toggle:checked ~ label::after {
+      transform: rotate(45deg);
+      bottom: 10px;
+    }
+  
+    #burger-toggle:checked ~ label::before {
+      transform: rotate(-45deg);
+      top: 12px;
+    }
+  
+    #burger-toggle:checked ~ label span {
+      transform: rotate(-45deg);
+      top: 12px;
+    }
+  
+    ul {
+      position: fixed;
+      left: 0;
+      right: 0;
+      background-color: #2f79be;
+      padding-top: 300px;
+      z-index: -1;
+      flex-direction: column;
+      text-align: center;
+  
+      left: -100vw;
+      right: 200vw;
+  
+    }
+  
+    #burger-toggle:checked ~ ul {
+      left: 0;
+      right: 0;
+    }
+  
+    li a {
+      font-size: 24px;
+    }
+  }
+
+/* Секция услуг */
+.services {
+    padding: 50px 0;
+    border: 0px solid red;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 36px;
+    color: rgb(180, 207, 25);
+    font-family: Furore , sans-serif;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 50px;
+}
+
+.service-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.service-img {
+    height: 250px;
+    overflow: hidden;
+}
+
+.service-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.service-card:hover .service-img img {
+    transform: scale(1.1);
+}
+
+.service-content {
+    padding: 25px;
+}
+
+.service-content h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #1a1a2e;
+    font-weight: bold;
+
+}
+
+.service-content p {
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.service-price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #4cc9f0;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #1a1a2e;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #4cc9f0;
+}
+
+/* Секция преимуществ */
+.advantages {
+    background-color: #1a1a2e;
+    color: white;
+    padding: 80px 0;
+}
+
+.advantages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.advantage-item {
+    text-align: center;
+    padding: 30px;
+}
+
+.advantage-icon {
+    font-size: 50px;
+    color: #4cc9f0;
+    margin-bottom: 20px;
+}
+
+.advantage-item h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+/* Форма заявки */
+.contact-form {
+    padding: 80px 0;
+    background-color: #18234E;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #f9f9f9;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group .tut {
+    display: flex;
+    margin-bottom: 8px;
+    font-weight: bold;
+    white-space: nowrap
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.form-group textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.submit-btn {
+    background-color: #1a1a2e;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #4cc9f0;
+}
+
+/* Подвал */
+.footer{
+    display: flex;
+    justify-content: center;
+    border: 0px solid red;
+    margin-top: 5%;
+  }
+  
+  
+  .svaz{
+    border: 0px solid red;
+    margin: 0% 3% 0px 0%;
+  }
+  
+  
+  .kak{
+    font-size: 3vw;
+    font-family: Unbounded, sans-serif;
+    color: white;
+  }
+  
+  
+  .svaz2{
+    display: flex;
+    border: 0px solid red;
+    margin: 0px 3% 0px 3%;
+    height: auto;
+  }
+  
+  
+  .text-full{
+    border: 0px solid red;
+    width: 40%;
+    margin-left: 5%;
+    color: white;
+  }
+  
+  
+  .karta{
+    border: 0px solid rgb(0, 255, 64);
+    width: 50%;
+    height: 100%;
+  }
+  
+  
+  .krt{
+    border-radius: 25px;
+  
+  }
+  
+  
+  .left1{
+    font-size: 18px;
+    font-family: Rubik, sans-serif;
+    line-height: 30px;
+  }
+  
+  
+  .text-left{
+    width: 70%;
+    margin-top: 3%;
+  }
+  
+  
+  .email{
+    display: flex;
+    align-items: center;
+    border: 0px solid red;
+    margin-top: 3%;
+  }
+  
+  
+  .icon{
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    border-radius: 50%;
+    border: 0px solid red;
+  }
+  
+  
+  .icon-e{
+    margin: 10px 10px 10px 10px;
+    width: 20px;
+  }
+  
+  
+  .kont{
+    width: 100%;
+    height: 100%;
+    margin-left: 1%;
+    display: flex;
+  }
+  
+  
+  .txt51{
+    font-family: Rubik, sans-serif;
+    font-size: 25px;
+  }
+  
+  
+  .com{
+    border: 0px solid red;
+  }
+  
+  
+  .social{
+    border: 0px solid red;
+    display: flex;
+    margin-top: 5%;
+  }
+  
+  
+  .vk{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    background-color: #FF4C00;
+  }
+  
+  
+  .vk:hover{
+    opacity: 0.5;
+  }
+  
+  
+  .tg:hover{
+    opacity: 0.5;
+  }
+  
+  
+  .odnk:hover{
+    opacity: 0.5;
+  }
+  
+  
+  .twitch:hover{
+    opacity: 0.5;
+  }
+  
+  
+  .tg{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    background-color: #FF4C00;
+    margin-left: 3%;
+  }
+  
+  
+  .lol{
+    margin-left: 3%;
+    cursor: pointer;
+  }
+  
+  
+  .odnk{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    background-color: #FF4C00;
+    margin-left: 3%;
+  }
+  
+  
+  .twitch{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    background-color: #FF4C00;
+    margin-left: 3%;
+  }
+  
+  
+  .vko{
+    width: 30px;
+    height: 30px;
+  }
+  
+  
+  .tgk{
+    width: 30px;
+    height: 30px;
+  }
+  
+  
+  .od{
+    width: 30px;
+    height: 30px;
+  }
+  
+  
+  .tw{
+    width: 30px;
+    height: 30px;
+  }
+  
+  
+  .her{
+    display: flex;
+    justify-content: center;
+  
+    width: 100%;
+    height: 1px;
+  }
+  
+  
+  hr{
+    margin-top: 2%;
+    width: 90%;
+    height: 1%;
+    border: 1px solid rgb(255, 255, 255);
+    opacity: 0.3;
+  }
+  
+  
+  .foot{
+    margin-top: 3%;
+    border: 0px solid red;
+    width: 100%;
+    height: auto;
+  }
+  
+  
+  .corp{
+    margin-left: 5%;
+    line-height: 25px;
+    font-family: Unbounded, sans-serif;
+    font-size: 15px;
+    color: white;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 30px;
+    }
+    
+    .form-container {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 26px;
+    }
+    
+    .service-content h3 {
+        font-size: 20px;
+    }
+    
+    .form-container {
+        padding: 20px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .services-grid{
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
+
+
+@media (max-width: 768px) {
+    .kak{
+     font-size: 24px;
+    }
+  }
+  
+  
+  @media (max-width: 968px) {
+    .svaz2{
+     flex-wrap: wrap;
+    }
+  }
+  
+  
+  @media (max-width: 968px) {
+    .text-full{
+     width: 100%;
+    }
+  
+    .text-left{
+      width: 100%;
+     }
+     .left1{
+      font-size: 16px;
+     }
+  }
+  
+  
+  @media (max-width: 968px) {
+    .karta{
+      margin-top: 5%;
+      width: 100%;
+      height: 300px;
+    }
+  }
+  
+  
+  @media (max-width: 968px) {
+    .corp{
+      font-size: 10px;
+    }
+  }
